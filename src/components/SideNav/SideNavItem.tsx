@@ -2,9 +2,9 @@ import Link from "next/link";
 import { DynamicIcon, IconName } from "lucide-react/dynamic";
 
 import { usePathname } from "next/navigation";
-import { CategoryWithIcon } from "@/types/sanity";
+import { Category } from "@/types/sanity";
 
-export default function SideNavItem({ title, slug, icon }: CategoryWithIcon) {
+export default function SideNavItem({ title, slug, icon }: Category) {
   const pathName = usePathname();
   const href = `/category/${slug}`;
   const isActive = pathName === href;

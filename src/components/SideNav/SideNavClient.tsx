@@ -4,12 +4,12 @@ import { useState } from "react";
 import { Menu, SquareX } from "lucide-react";
 
 import SideNavItem from "./SideNavItem";
-import { CategoryWithIcon } from "@/types/sanity";
+import { Category } from "@/types/sanity";
 
 export default function SideNavClient({
   categories,
 }: {
-  categories: CategoryWithIcon[];
+  categories: Category[];
 }) {
   const currentYear = new Date().getFullYear();
 
@@ -36,7 +36,7 @@ export default function SideNavClient({
 
       <div className="hidden grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2  overflow-y-auto md:flex">
         <div className=" w-full rounded-md md:flex-col h-auto overflow-y-auto">
-          {categories.map((category: CategoryWithIcon) => (
+          {categories.map((category) => (
             <SideNavItem {...category} key={category.title} />
           ))}
         </div>
