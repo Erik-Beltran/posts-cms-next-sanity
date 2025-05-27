@@ -5,10 +5,10 @@ export type Category = {
   description: string;
   icon?: string;
   slug?: string;
-  posts?: ArticleWithAuthor[];
+  posts?: PostWithAuthor[];
 };
 
-export type ArticleWithAuthor = {
+export type PostWithAuthor = {
   title: string;
   slug: string;
   description: string;
@@ -16,11 +16,13 @@ export type ArticleWithAuthor = {
   altImage: string;
   publishedAt: string;
   _id: string;
-  authorName: string;
-  authorSlug: string;
-  authorImage: string;
   categories: Category[];
   author: Author;
+};
+
+export type PostContent = PostWithAuthor & {
+  body: PortableTextBlock[];
+  tags: string[];
 };
 
 export type Author = {
@@ -28,5 +30,5 @@ export type Author = {
   slug: string;
   image: string;
   bio?: PortableTextBlock[];
-  posts?: ArticleWithAuthor[];
+  posts?: PostWithAuthor[];
 };

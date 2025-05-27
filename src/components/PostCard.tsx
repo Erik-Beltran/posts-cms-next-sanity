@@ -1,11 +1,11 @@
-import { ArticleWithAuthor } from "@/types/sanity";
 import { formatDate } from "@/utils/formatters";
 import Image from "next/image";
 import Link from "next/link";
 import AuthorCard from "./AuthorCard";
+import { PostWithAuthor } from "@/types/sanity";
 
 interface PostCardProps {
-  post: ArticleWithAuthor;
+  post: PostWithAuthor;
   showAuthor?: boolean;
 }
 

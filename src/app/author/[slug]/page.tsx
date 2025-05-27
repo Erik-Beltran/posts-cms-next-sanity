@@ -1,18 +1,18 @@
 import PostCard from "@/components/PostCard";
 import { client } from "@/sanity/lib/client";
-import { ARTICLES_BY_AUTHOR } from "@/sanity/lib/queries";
+import { POSTS_BY_AUTHOR } from "@/sanity/lib/queries";
 import { Author } from "@/types/sanity";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
-type ArticlePageProps = {
+type AuthorPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export default async function AuthorPage({ params }: ArticlePageProps) {
+export default async function AuthorPage({ params }: AuthorPageProps) {
   const { slug } = await params;
 
-  const data = await client.fetch<Author>(ARTICLES_BY_AUTHOR, {
+  const data = await client.fetch<Author>(POSTS_BY_AUTHOR, {
     slug,
   });
 

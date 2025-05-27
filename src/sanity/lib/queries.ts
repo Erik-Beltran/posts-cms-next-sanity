@@ -6,7 +6,7 @@ export const CATEGORIES_QUERY = defineQuery(`*[_type == "category"]{
     icon
   }`);
 
-export const ARTICLES_BY_CATEGORY = defineQuery(
+export const POSTS_BY_CATEGORY = defineQuery(
   `*[_type == "category" && slug.current == $slug][0]{
     title,
     description,
@@ -31,7 +31,7 @@ export const ARTICLES_BY_CATEGORY = defineQuery(
   }`
 );
 
-export const ARTICLES_BY_AUTHOR = defineQuery(
+export const POSTS_BY_AUTHOR = defineQuery(
   `*[_type == "author" && slug.current == $slug][0]{
     name,
     bio,
@@ -50,4 +50,28 @@ export const ARTICLES_BY_AUTHOR = defineQuery(
        }
     }  
   }`
+);
+
+export const POST_BY_SLUG = defineQuery(
+  `*[_type == "post" && slug.current == $slug][0]{
+      _id,
+      title,
+      "slug": slug.current,
+      "imageUrl": mainImage.asset->url,
+      "altImage": mainImage.alt,
+      description,
+      body,
+      publishedAt,
+      "categories": categories[]->{
+        title,
+        "slug": slug.current,
+      },
+       "author": author->{
+        name,
+        "slug": slug.current,
+        "image": image.asset->url
+      },
+      tags,
+    }  
+  `
 );
