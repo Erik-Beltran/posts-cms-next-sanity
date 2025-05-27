@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "next-sanity";
+
 export type Category = {
   title: string;
   description: string;
@@ -25,5 +27,6 @@ export type Author = {
   name: string;
   slug: string;
   image: string;
-  bio?: string;
+  bio?: PortableTextBlock[];
+  posts?: ArticleWithAuthor[];
 };

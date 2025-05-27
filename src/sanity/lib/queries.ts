@@ -30,3 +30,24 @@ export const ARTICLES_BY_CATEGORY = defineQuery(
     }  
   }`
 );
+
+export const ARTICLES_BY_AUTHOR = defineQuery(
+  `*[_type == "author" && slug.current == $slug][0]{
+    name,
+    bio,
+    "image": image.asset->url,
+    "posts": *[_type == "post" && references(^._id)]{
+      _id,
+      title,
+      "slug": slug.current,
+      description,
+      "imageUrl": mainImage.asset->url,
+      "altImage": mainImage.alt,
+      publishedAt,
+      "categories": categories[]->{
+        title,
+        "slug": slug.current,
+       }
+    }  
+  }`
+);

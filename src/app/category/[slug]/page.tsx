@@ -10,14 +10,11 @@ type ArticlePageProps = {
 export default async function CategoryPage({ params }: ArticlePageProps) {
   const { slug } = await params;
 
-  console.log("slug", slug);
-
   const data = await client.fetch<Category>(ARTICLES_BY_CATEGORY, {
     slug,
   });
 
   const { description, title, posts = [] } = data;
-  console.log("data", data);
 
   if (posts.length === 0) {
     return (
