@@ -5,6 +5,7 @@ import { Menu, SquareX } from "lucide-react";
 
 import SideNavItem from "./SideNavItem";
 import { Category } from "@/types/sanity";
+import SearchInput from "../SearchInput";
 
 export default function SideNavClient({
   categories,
@@ -17,7 +18,8 @@ export default function SideNavClient({
 
   return (
     <>
-      <div className="md:hidden p-4 self-end">
+      <div className="md:hidden p-4 self-end flex justify-between w-full gap-x-4 ">
+        <SearchInput />
         <button onClick={() => setIsOpen(!isOpen)}>
           <Menu />
         </button>

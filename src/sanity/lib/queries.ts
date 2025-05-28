@@ -54,24 +54,44 @@ export const POSTS_BY_AUTHOR = defineQuery(
 
 export const POST_BY_SLUG = defineQuery(
   `*[_type == "post" && slug.current == $slug][0]{
-      _id,
+    _id,
+    title,
+    "slug": slug.current,
+    "imageUrl": mainImage.asset->url,
+    "altImage": mainImage.alt,
+    description,
+    body,
+    publishedAt,
+    "categories": categories[]->{
       title,
       "slug": slug.current,
-      "imageUrl": mainImage.asset->url,
-      "altImage": mainImage.alt,
-      description,
-      body,
-      publishedAt,
-      "categories": categories[]->{
-        title,
-        "slug": slug.current,
-      },
-       "author": author->{
-        name,
-        "slug": slug.current,
-        "image": image.asset->url
-      },
-      tags,
-    }  
-  `
+    },
+    "author": author->{
+    name,
+    "slug": slug.current,
+    "image": image.asset->url
+    },
+    tags,
+  }`
+);
+
+export const POSTS_BY_QUERY = defineQuery(
+  `*[_type == "post" && title match "*" + $q + "*"] {
+    _id,
+    title,
+    "slug": slug.current,
+    "imageUrl": mainImage.asset->url,
+    "altImage": mainImage.alt,
+    description,
+    publishedAt,
+    "categories": categories[]->{
+      title,
+      "slug": slug.current,
+    },
+    "author": author->{
+    name,
+    "slug": slug.current,
+    "image": image.asset->url
+    },
+   }`
 );

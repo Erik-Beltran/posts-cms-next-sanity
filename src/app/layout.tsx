@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SideNavServer from "@/components/SideNav/SideNavServer";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Content Publishing Platform",
@@ -14,13 +15,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="flex flex-col md:flex-row md:overflow-hidden bg-gray-500/10 h-screen max-md:h-auto">
-          <div className="w-full flex-none md:w-64">
-            <SideNavServer />
+      <body className="bg-gray-500/10 h-dvh">
+        <Providers>
+          <div className="flex flex-col md:flex-row md:overflow-hidden  h-full">
+            <div className="w-full flex-none md:w-64">
+              <SideNavServer />
+            </div>
+            <div className="grow p-4 text-gray-500 overflow-y-auto">
+              {children}
+            </div>
           </div>
-          <div className="grow p-4 text-gray-500">{children}</div>
-        </div>
+        </Providers>
       </body>
     </html>
   );
