@@ -21,19 +21,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     <PageLayout title={title}>
       <p className="text-black rounded-md bg-white p-4 mb-6">{description}</p>
       {posts.length === 0 ? (
-        <div className="h-full rounded-md bg-white w-full flex justify-center items-center p-4">
-          <span className="text-black text-2xl font-medium">
-            This category doesn’t have any post yet.
-          </span>
-        </div>
+        <p className="text-2xl font-medium text-center flex flex-1 justify-center items-center">
+          This category doesn’t have any post yet.
+        </p>
       ) : (
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8  overflow-y-auto mb-4">
-          {posts.map((post) => (
-            <PostCard post={post} key={post._id} showAuthor />
-          ))}
-          {posts.map((post) => (
-            <PostCard post={post} key={post._id} showAuthor />
-          ))}
           {posts.map((post) => (
             <PostCard post={post} key={post._id} showAuthor />
           ))}

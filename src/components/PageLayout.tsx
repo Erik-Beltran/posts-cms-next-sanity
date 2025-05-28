@@ -16,7 +16,7 @@ export default function PageLayout({ title, children }: PageLayoutProps) {
           </div>
         </div>
       </section>
-      <section>{children}</section>
+      <section className="flex-1 flex flex-col">{children}</section>
     </main>
   );
 }

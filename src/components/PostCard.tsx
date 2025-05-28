@@ -21,7 +21,7 @@ function PostCard({ post, showAuthor }: PostCardProps) {
     author,
   } = post;
   return (
-    <li className="shadow-sm rounded-md   hover:bg-gray-200 transition-all duration-300 text-gray-500 bg-white">
+    <li className="shadow-sm rounded-md hover:bg-gray-200 transition-all duration-300 text-gray-500 bg-white">
       <Image
         src={imageUrl}
         alt={altImage || title}
@@ -30,7 +30,7 @@ function PostCard({ post, showAuthor }: PostCardProps) {
         className="rounded-t-md h-[200px] w-full object-cover"
       />
 
-      <div className="px-3 py-4 flex flex-col gap-2 md:gap-3 flex-1">
+      <div className="p-3 flex flex-col gap-2 md:gap-3 flex-1">
         <div className="flex justify-between border-b flex-col gap-2 border-gray-500">
           <p className="flex gap-x-2">
             {categories.map((category) => (
