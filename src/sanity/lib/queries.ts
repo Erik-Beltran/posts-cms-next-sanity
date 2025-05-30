@@ -120,3 +120,9 @@ export const PAGINATED_POSTS_QUERY = (start: number, end: number) =>
       "total": count(*[_type == "post"])
     }
   `);
+
+export const AUTHORS_QUERY = defineQuery(`*[_type == "author"]{
+    name,
+    "slug": slug.current,
+    "image": image.asset->url
+  }`);

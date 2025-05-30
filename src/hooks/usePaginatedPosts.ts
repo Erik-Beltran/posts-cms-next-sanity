@@ -2,7 +2,7 @@ import { client } from "@/sanity/lib/client";
 import { PAGINATED_POSTS_QUERY } from "@/sanity/lib/queries";
 import { useQuery } from "@tanstack/react-query";
 
-export const POSTS_PER_PAGE = 9;
+export const POSTS_PER_PAGE = 6;
 
 const fetchPaginatedPosts = async (page: number) => {
   const start = (page - 1) * POSTS_PER_PAGE;

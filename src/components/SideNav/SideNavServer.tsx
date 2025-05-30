@@ -12,7 +12,7 @@ export default async function SideNavServer() {
   });
 
   return (
-    <div className="flex h-full flex-col p-4 bg-white rounded-md">
+    <div className="flex h-full flex-col p-4 bg-white rounded-md gap-y-3">
       <Logo />
       <SideNavClient categories={categories} />
     </div>
