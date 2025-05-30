@@ -95,3 +95,28 @@ export const POSTS_BY_QUERY = defineQuery(
     },
    }`
 );
+
+export const PAGINATED_POSTS_QUERY = (start: number, end: number) =>
+  defineQuery(`
+    {
+      "posts": *[_type == "post"] | order(publishedAt desc)[${start}..${end}]{
+              _id,
+      title,
+      "slug": slug.current,
+      description,
+      "imageUrl": mainImage.asset->url,
+      "altImage": mainImage.alt,
+      "author": author->{
+      name,
+      "slug": slug.current,
+      "image": image.asset->url
+      },
+      publishedAt,
+      "categories": categories[]->{
+        title,
+        "slug": slug.current,
+       }
+      },
+      "total": count(*[_type == "post"])
+    }
+  `);

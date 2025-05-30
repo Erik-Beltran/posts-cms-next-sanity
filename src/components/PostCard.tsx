@@ -21,7 +21,7 @@ function PostCard({ post, showAuthor }: PostCardProps) {
     author,
   } = post;
   return (
-    <li className="shadow-sm rounded-md hover:bg-gray-200 transition-all duration-300 text-gray-500 bg-white">
+    <li className="shadow-sm rounded-md hover:bg-gray-200 transition-all duration-300 text-gray-500 bg-white list-none">
       <Image
         src={imageUrl}
         alt={altImage || title}
@@ -34,13 +34,18 @@ function PostCard({ post, showAuthor }: PostCardProps) {
         <div className="flex justify-between border-b flex-col gap-2 border-gray-500">
           <p className="flex gap-x-2">
             {categories.map((category) => (
-              <Link
-                key={category.title}
-                href={`/category/${category.slug}`}
-                className="text-sm font-semibold text-blue-600 hover:underline cursor-pointer"
-              >
-                {category.title}
-              </Link>
+              <span key={category.slug}>
+                <Link
+                  key={category.title}
+                  href={`/category/${category.slug}`}
+                  className="text-sm font-semibold text-blue-600 hover:underline cursor-pointer"
+                >
+                  {category.title}
+                </Link>
+                {category.slug === categories[categories.length - 1].slug
+                  ? ""
+                  : ","}
+              </span>
             ))}
           </p>
 
