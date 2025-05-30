@@ -8,6 +8,7 @@ import { client } from "@/sanity/lib/client";
 import { POSTS_BY_AUTHOR } from "@/sanity/lib/queries";
 
 import { Author } from "@/types/sanity";
+import PostsContainer from "@/components/PostsContainer";
 
 type AuthorPageProps = {
   params: Promise<{ slug: string }>;
@@ -56,11 +57,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
           <h3 className="text-4xl font-bold text-black bg-white rounded-md p-4 mb-6">
             Articles
           </h3>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8  overflow-y-auto">
-            {posts.map((post) => (
-              <PostCard post={post} key={post._id} />
-            ))}
-          </ul>
+          <PostsContainer posts={posts} showAuthor={false} />
         </section>
       </main>
     </PageLayout>

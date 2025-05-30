@@ -21,9 +21,9 @@ export default function AuthorCard({
   const isActive = pathName === href;
   return (
     <div
-      className={`flex items-center ${
-        isMainContainer ? "mb-4 space-x-2" : "flex-col"
-      }`}
+      className={`flex items-center p-1
+        ${isMainContainer ? "mb-4 space-x-2" : "flex-col"}
+        ${isActive ? "rounded-md bg-sky-100 " : ""}`}
     >
       <Image
         src={image}
@@ -35,7 +35,7 @@ export default function AuthorCard({
       />
       <Link
         className={`hover:text-blue-500 hover:underline cursor-pointer text-xs ${
-          isActive ? "text-blue-500" : ""
+          isActive ? "text-blue-500  bg-sky-100 " : ""
         }`}
         href={`/author/${slug}`}
       >

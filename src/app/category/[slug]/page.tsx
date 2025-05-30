@@ -1,5 +1,6 @@
 import PageLayout from "@/components/PageLayout";
-import PostCard from "@/components/PostCard";
+import PostsContainer from "@/components/PostsContainer";
+
 import { client } from "@/sanity/lib/client";
 import { POSTS_BY_CATEGORY } from "@/sanity/lib/queries";
 import { Category } from "@/types/sanity";
@@ -25,11 +26,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           This category doesn’t have any post yet.
         </p>
       ) : (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8  overflow-y-auto mb-4">
-          {posts.map((post) => (
-            <PostCard post={post} key={post._id} showAuthor />
-          ))}
-        </ul>
+        <PostsContainer posts={posts} />
       )}
     </PageLayout>
   );

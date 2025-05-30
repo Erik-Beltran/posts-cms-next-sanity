@@ -17,7 +17,7 @@ function SearchInput() {
     }
 
     replace(`/search?${params.toString()}`);
-  }, 500);
+  }, 300);
 
   return (
     <input
