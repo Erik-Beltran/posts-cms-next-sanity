@@ -23,6 +23,7 @@ export type PostWithAuthor = {
 export type PostContent = PostWithAuthor & {
   body: PortableTextBlock[];
   tags: string[];
+  related?: PostWithAuthor[];
 };
 
 export type Author = {

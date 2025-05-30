@@ -17,9 +17,13 @@ type AuthorPageProps = {
 export default async function AuthorPage({ params }: AuthorPageProps) {
   const { slug } = await params;
 
-  const data = await client.fetch<Author>(POSTS_BY_AUTHOR, {
-    slug,
-  });
+  const data = await client.fetch<Author>(
+    POSTS_BY_AUTHOR,
+    {
+      slug,
+    },
+    { cache: "force-cache" }
+  );
 
   const { name, bio, image, posts = [] } = data;
 

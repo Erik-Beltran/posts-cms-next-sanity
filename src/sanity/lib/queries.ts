@@ -47,7 +47,7 @@ export const POSTS_BY_AUTHOR = defineQuery(
       "categories": categories[]->{
         title,
         "slug": slug.current,
-       }
+       },
     }  
   }`
 );
@@ -65,6 +65,7 @@ export const POST_BY_SLUG = defineQuery(
     "categories": categories[]->{
       title,
       "slug": slug.current,
+      _ref
     },
     "author": author->{
     name,
@@ -72,6 +73,24 @@ export const POST_BY_SLUG = defineQuery(
     "image": image.asset->url
     },
     tags,
+    "related": *[_type == "post" && slug.current != $slug && count((categories[]->._id)[@ in ^.^.categories[]->._id]) > 0] | order(publishedAt desc)[0...3]{
+      _id,
+      title,
+      "slug": slug.current,
+      description,
+      "imageUrl": mainImage.asset->url,
+      "altImage": mainImage.alt,
+      "author": author->{
+      name,
+      "slug": slug.current,
+      "image": image.asset->url
+      },
+      publishedAt,
+      "categories": categories[]->{
+        title,
+        "slug": slug.current,
+       }
+    }
   }`
 );
 

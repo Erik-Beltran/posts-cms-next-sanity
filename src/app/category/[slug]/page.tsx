@@ -12,9 +12,13 @@ type CategoryPageProps = {
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { slug } = await params;
 
-  const data = await client.fetch<Category>(POSTS_BY_CATEGORY, {
-    slug,
-  });
+  const data = await client.fetch<Category>(
+    POSTS_BY_CATEGORY,
+    {
+      slug,
+    },
+    { cache: "force-cache" }
+  );
 
   const { description, title, posts = [] } = data;
 

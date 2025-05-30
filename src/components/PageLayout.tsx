@@ -18,9 +18,9 @@ export default function PageLayout({ title, children }: PageLayoutProps) {
         </div>
       </section>
 
-      <section className="flex-1 flex flex-col">
-        <div className="flex justify-between gap-4 flex-col pb-4 lg:flex-row">
-          <div className="lg:w-[75%]">{children}</div>
+      <section className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex justify-between gap-4 flex-col pb-4 lg:flex-row overflow-y-auto">
+          <div className="lg:w-[75%] overflow-y-auto">{children}</div>
           <AuthorsContainer />
         </div>
       </section>

@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 
 import AuthorCard from "./AuthorCard";
 import AuthorsContainerSkeleton from "./AuthorsContainerSkeleton";
-
 import { Author } from "@/types/sanity";
 
 async function fetchAuthors(): Promise<Author[]> {
