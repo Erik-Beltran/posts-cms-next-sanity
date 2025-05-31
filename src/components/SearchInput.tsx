@@ -15,7 +15,7 @@ function SearchInput() {
     } else {
       params.delete("q");
     }
-
+    params.delete("page");
     replace(`/search?${params.toString()}`);
   }, 300);
 

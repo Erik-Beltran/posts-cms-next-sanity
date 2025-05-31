@@ -21,7 +21,9 @@ export default function RootLayout({
             <div className="w-full flex-none md:w-64">
               <SideNavServer />
             </div>
-            <div className="grow p-4 text-gray-500 ">{children}</div>
+            <div className="px-4 max-md:py-4 text-gray-500 w-full">
+              {children}
+            </div>
           </div>
         </Providers>
       </body>
