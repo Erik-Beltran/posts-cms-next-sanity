@@ -12,7 +12,7 @@ export default function PageLayout({ title, children }: PageLayoutProps) {
   return (
     <main className="flex flex-col h-full gap-y-4 flex-1 pt-4">
       <section className="">
-        <div className="flex items-center justify-between rounded-md bg-white p-5">
+        <div className="flex items-center justify-between rounded-md bg-white p-5 gap-x-4">
           <h2 className="text-4xl font-bold text-black">{title}</h2>
           <div className="hidden flex-1 md:flex justify-end">
             <Suspense fallback={<div>Loading search...</div>}>
@@ -22,8 +22,8 @@ export default function PageLayout({ title, children }: PageLayoutProps) {
         </div>
       </section>
 
-      <section className="flex-1 flex flex-col overflow-hidden">
-        <div className="flex justify-between gap-4 flex-col pb-4 lg:flex-row overflow-y-auto">
+      <section className="flex-1 flex flex-col overflow-y-auto lg:overflow-hidden">
+        <div className="flex justify-between gap-4 flex-col pb-4 lg:flex-row  lg:overflow-y-auto ">
           <div className="lg:w-[75%] overflow-y-auto">{children}</div>
           <AuthorsContainer />
         </div>

@@ -37,7 +37,7 @@ const PaginatedPosts = () => {
   const totalPages = Math.ceil(total / POSTS_PER_PAGE);
 
   return (
-    <section>
+    <section className="grid grid-rows-[auto_1fr] h-full">
       <PostsContainer posts={posts} />
       <ReactPaginate
         pageCount={totalPages}
