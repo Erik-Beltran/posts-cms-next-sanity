@@ -10,7 +10,7 @@ type PageLayoutProps = PropsWithChildren<{
 
 export default function PageLayout({ title, children }: PageLayoutProps) {
   return (
-    <main className="flex flex-col h-full gap-y-4 flex-1">
+    <main className="flex flex-col h-full gap-y-4 flex-1 pt-4">
       <section className="">
         <div className="flex items-center justify-between rounded-md bg-white p-5">
           <h2 className="text-4xl font-bold text-black">{title}</h2>
