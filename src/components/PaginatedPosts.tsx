@@ -27,7 +27,7 @@ const PaginatedPosts = () => {
       params.delete("page");
     }
     replace(`/${pathName}?${params.toString()}`);
-  }, [page]);
+  }, [page, pathName, replace, searchParams]);
 
   if (isLoading) return <PostCardSkeleton />;
   if (isError || !data) return <p>Error fetching posts</p>;

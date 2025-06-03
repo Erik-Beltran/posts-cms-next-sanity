@@ -2,7 +2,6 @@ import Image from "next/image";
 import { PortableText } from "next-sanity";
 
 import PageLayout from "@/components/PageLayout";
-import PostCard from "@/components/PostCard";
 
 import { client } from "@/sanity/lib/client";
 import { POSTS_BY_AUTHOR } from "@/sanity/lib/queries";

@@ -32,7 +32,7 @@ function PostCard({ post, showAuthor }: PostCardProps) {
 
       <div className="p-3 flex flex-col gap-2 md:gap-3 flex-1">
         <div className="flex justify-between border-b flex-col gap-2 border-gray-500">
-          <p className="flex gap-x-2">
+          <p className="flex gap-x-2 flex-wrap">
             {categories.map((category) => (
               <span key={category.slug}>
                 <Link

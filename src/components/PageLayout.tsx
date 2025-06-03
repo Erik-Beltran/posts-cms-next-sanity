@@ -1,4 +1,6 @@
-import { PropsWithChildren } from "react";
+"use client";
+
+import { PropsWithChildren, Suspense } from "react";
 import SearchInput from "./SearchInput";
 import AuthorsContainer from "./AuthorsContainer";
 
@@ -13,7 +15,9 @@ export default function PageLayout({ title, children }: PageLayoutProps) {
         <div className="flex items-center justify-between rounded-md bg-white p-5">
           <h2 className="text-4xl font-bold text-black">{title}</h2>
           <div className="hidden flex-1 md:flex justify-end">
-            <SearchInput />
+            <Suspense fallback={<div>Loading search...</div>}>
+              <SearchInput />
+            </Suspense>
           </div>
         </div>
       </section>
