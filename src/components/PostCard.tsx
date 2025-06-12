@@ -27,7 +27,7 @@ function PostCard({ post, showAuthor }: PostCardProps) {
         alt={altImage || title}
         width={400}
         height={400}
-        className="rounded-t-md h-[200px] w-full object-cover"
+        className="rounded-t-md aspect-video"
       />
 
       <div className="p-3 flex flex-col gap-2 md:gap-3 flex-1">

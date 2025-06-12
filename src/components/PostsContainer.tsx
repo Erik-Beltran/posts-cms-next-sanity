@@ -8,7 +8,7 @@ interface PostsContainerProps {
 
 const PostsContainer = ({ posts, showAuthor = true }: PostsContainerProps) => {
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8  overflow-y-auto">
+    <ul className="grid grid-cols-1 sm:grid-cols-2   gap-6 md:gap-8  overflow-y-auto">
       {posts.map((post) => (
         <PostCard post={post} key={post._id} showAuthor={showAuthor} />
       ))}
